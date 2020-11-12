@@ -17,9 +17,6 @@ namespace RPSLS
             attackMethod = new List<Moves>();
         }
 
-        public bool Paper(Moves move)
-        {
-            
-        }
+       
     }
 }
