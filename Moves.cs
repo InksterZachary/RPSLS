@@ -17,6 +17,22 @@ namespace RPSLS
             attackMethod = new List<Moves>();
         }
 
-       
+       public bool Paper(Players move)
+        {
+            if(move == Spock)
+            {
+                Console.WriteLine("Spock has been DISPROVEN");
+                return true;
+            }
+            else if(move == Rock)
+            {
+                Console.WriteLine("You really thought a rock could defeat my paper?");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
