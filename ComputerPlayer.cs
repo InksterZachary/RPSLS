@@ -7,20 +7,40 @@ using System.Threading.Tasks;
 
 namespace RPSLS
 {
-    class ComputerPlayer
+    class ComputerPlayer : Player
     {
-        public string name;
-        public string type;
-
-        public ComputerPlayer(string name, string type)
+        public Random random;
+        public ComputerPlayer(string name) : base(name)//base calls the parent constructor and sends in the required values.
         {
-            this.name = name;
-            this.type = type;
+            this.name = "AlIx";
+
         }
 
-        public void RoboMove()
+        public override void ChooseMove()
         {
+            chosenGesture = RoboMove();
+        }
 
+        public Move RoboMove()
+        {
+            random = new Random();
+            int r = random.Next(0, 6);
+            switch (r)
+            {
+                case 0:
+                    return chosenGesture.gesture[0];
+                case 1:
+                    return chosenGesture.gesture[1];
+                case 2:
+                    return chosenGesture.gesture[2];
+                case 3:
+                    return chosenGesture.gesture[3];
+                case 4:
+                    return chosenGesture.gesture[4];
+                case 5:
+                    return chosenGesture.gesture[5];
+            }
+            return null;
         }
     }
 }

@@ -45,9 +45,10 @@
   <ItemGroup>
     <Compile Include="BattleArena.cs" />
     <Compile Include="ComputerPlayer.cs" />
+    <Compile Include="HumanPlayer.cs" />
     <Compile Include="MainMenu.cs" />
-    <Compile Include="Moves.cs" />
-    <Compile Include="Players.cs" />
+    <Compile Include="Move.cs" />
+    <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
