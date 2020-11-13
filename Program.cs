@@ -10,6 +10,8 @@ namespace RPSLS
     {
         static void Main(string[] args)
         {
+            BattleArena battleOne = new BattleArena();
+            battleOne.RunGame();
         }
     }
 }

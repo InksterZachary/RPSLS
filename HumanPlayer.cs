@@ -12,41 +12,49 @@ namespace RPSLS
         public HumanPlayer(string name) : base(name)
         {
             //name = Console.ReadLine();
+            score = 0;
         }
         public override void ChooseMove()
         {
-            chosenGesture = HumanMove();
+           HumanMove();
         }
         public Move HumanMove()
         {
-            Console.WriteLine("Choose a gesture. Your options are:");
-            Console.WriteLine("||Rock | Paper | Scissors | Lizard | Spock||");
-            string userInput = Console.ReadLine();
-            if (userInput == "Rock")
+
+            bool validInput = false;
+            while (!validInput)
             {
-                return chosenGesture.gesture[0];
+
+                Console.WriteLine("Choose a gesture. Your options are:");
+                Console.WriteLine("||Rock | Paper | Scissors | Lizard | Spock||");
+                string userInput = Console.ReadLine();
+                if (userInput == "Rock")
+                {
+                    return gesture[0];
+                }
+                else if (userInput == "Paper")
+                {
+                    return gesture[1];
+                }
+                else if(userInput == "scissors")
+                {
+                    return gesture[2];
+                }
+                else if(userInput == "Lizard")
+                {
+                    return gesture[3];
+                }
+                else if(userInput == "Spock")
+                {
+                    return gesture[4];
+                }    
+                else
+                {
+                    Console.WriteLine("Please choose an appropriate gesture next time.");
+                    return null;
+                }
             }
-            else if (userInput == "Paper")
-            {
-                return chosenGesture.gesture[1];
-            }
-            else if(userInput == "scissors")
-            {
-                return chosenGesture.gesture[2];
-            }
-            else if(userInput == "Lizard")
-            {
-                return chosenGesture.gesture[3];
-            }
-            else if(userInput == "Spock")
-            {
-                return chosenGesture.gesture[4];
-            }    
-            else
-            {
-                Console.WriteLine("Please choose an appropriate gesture next time.");
-                return null;
-            }
+            return null;
         }
     }
 }

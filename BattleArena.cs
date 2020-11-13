@@ -10,111 +10,82 @@ namespace RPSLS
     {
         public Player player1;
         public Player player2;
-        MainMenu game;
+        public MainMenu game = new MainMenu();
         public BattleArena()
         {
-            if (game.PlayerChoice() == true)
+            
+        }
+        public void RunGame()
+        {
+            game.WelcomeRules();
+            if (game.PlayerChoice())
             {
                 player1 = new HumanPlayer(Console.ReadLine());
                 player2 = new HumanPlayer(Console.ReadLine());
-                Battle();
+                BattlePVP();
             }
             else
             {
                 player1 = new HumanPlayer(Console.ReadLine());
                 player2 = new ComputerPlayer("AlIx");
-                Battle();
+                BattleComputer();
+            }
+        }
+        public void BattlePVP()
+        {
+
+            while(player1.score != player2.score + 2 && player1.score != 3 && player2.score != player1.score + 2 && player2.score != 3)
+            {
+                player1.ChooseMove();
+                player2.ChooseMove();
+                CompareMoves();
+
+            }
+            if(player1.score > player2.score)
+            {
+                Console.WriteLine(player1.name +" is unequivically the most ruthless gesturer this side of the boarder.");
+            }
+            else
+            {
+                Console.WriteLine("I bet "+ player2.name +" could take you with one arm tied behind their back.");
+            }
+        }
+        
+        public void BattleComputer()
+        {
+            while (player1.score != player2.score + 2 && player1.score != 3 && player2.score != player1.score + 2 && player2.score != 3)
+            {
+                player1.ChooseMove();
+                player2.ChooseMove();
+                CompareMoves();
+            }
+            if (player1.score > player2.score)
+            {
+                Console.WriteLine(player1.name + " is unequivically the most ruthless gesturer this side of town.");
+            }
+            else
+            {
+                Console.WriteLine("I bet " + player2.name + " could take you with one arm tied behind their back.");
+            }
+        }
+        public void CompareMoves()
+        {
+            if (player1.gesture == player2.gesture)
+            {
+                Console.WriteLine("TIE no points!");
+            }
+            for (int i = 0; i < player1.gesture.Count; i++)
+            {
+              if(player1.gesture[i].name != player2.gesture[i].enemy && player1.gesture[i].name != player2.gesture[i].enemyTwo)
+                {
+                    player1.score++;
+                }
+                else
+                {
+                    player2.score++;
+                }
             }
             
-        }
-        public void Battle()
-        {
-            
-        }
-        public bool Paper()
-        {
-            if (player1.chosenGesture == player1.chosenGesture.gesture[4])
-            {
-                Console.WriteLine("Spock has been DISPROVEN");
-                return true;
-            }
-            else if (move.name == rock)
-            {
-                Console.WriteLine("You really thought a rock could defeat my paper?");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool Rock(Move move)
-        {
-            if (move.name == scissors)
-            {
-                Console.WriteLine("Only diamond can cut diamond!!");
-                return true;
-            }
-            else if (move.name == lizard)
-            {
-                Console.WriteLine("Your lizard was no match for me.");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool Scissors(Move move)
-        {
-            if (move.name == paper)
-            {
-                Console.WriteLine("One scissor to rule them all");
-                return true;
-            }
-            else if (move.name == spock)
-            {
-                Console.WriteLine("Sir I'm going to need to see some ID.");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool Lizard(Move move)
-        {
-            if (move.name == spock)
-            {
-                Console.WriteLine("HISS");
-                return true;
-            }
-            else if (move.name == paper)
-            {
-                Console.WriteLine("hisssss");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        public bool Spock(Move move)
-        {
-            if (move.name == scissors)
-            {
-                Console.WriteLine("My Vulcan skin is no match for your earthly weapons");
-                return true;
-            }
-            else if (move.name == rock)
-            {
-                Console.WriteLine("Was that supposed to hurt me, human?");
-                return true;
-            }
-            else
-            {
-                return false;
-            }
         }
     }
 }
