@@ -10,14 +10,30 @@ namespace RPSLS
     {
         public Player player1;
         public Player player2;
+        MainMenu game;
         public BattleArena()
         {
-           
+            if (game.PlayerChoice() == true)
+            {
+                player1 = new HumanPlayer(Console.ReadLine());
+                player2 = new HumanPlayer(Console.ReadLine());
+                Battle();
+            }
+            else
+            {
+                player1 = new HumanPlayer(Console.ReadLine());
+                player2 = new ComputerPlayer("AlIx");
+                Battle();
+            }
             
         }
-        public bool Paper(Move move)
+        public void Battle()
         {
-            if (move.name == spock)
+            
+        }
+        public bool Paper()
+        {
+            if (player1.chosenGesture == player1.chosenGesture.gesture[4])
             {
                 Console.WriteLine("Spock has been DISPROVEN");
                 return true;

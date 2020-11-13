@@ -21,13 +21,22 @@ namespace RPSLS
         {
             this.name = name;
             gesture = new List<Move>();
+            LearnGestures();
+             
+        }
+        public void LearnGestures()
+        {
+            rock = new Move("rock");
+            paper = new Move("paper");
+            scissors = new Move("scissors");
+            lizard = new Move("lizard");
+            spock = new Move("spock");
             gesture.Add(rock);
             gesture.Add(paper);
             gesture.Add(scissors);
             gesture.Add(lizard);
-            gesture.Add(spock); 
+            gesture.Add(spock);
         }
-
        
             
     }

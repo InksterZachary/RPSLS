@@ -13,11 +13,12 @@ namespace RPSLS
         public ComputerPlayer(string name) : base(name)//base calls the parent constructor and sends in the required values.
         {
             this.name = "AlIx";
-
+            
         }
 
         public override void ChooseMove()
         {
+            Console.WriteLine("Rock, Paper, Scissors, Lizard, Spock SHOOT");
             chosenGesture = RoboMove();
         }
 
