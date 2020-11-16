@@ -29,7 +29,7 @@ namespace RPSLS
                 Console.WriteLine((i + 1) + ": " + gestures[i].name);
             }
             string userInput = Console.ReadLine();
-            if (int.TryParse(userInput, out int number)) //Tony showed me this
+            if (int.TryParse(userInput, out int number)) //After I had a working version, Tony walked me through this more efficient way.
             {
                 number--;
                 if (number >= 0 && number < gestures.Count)
@@ -45,34 +45,6 @@ namespace RPSLS
             {
                 return HumanMove();
             }
-
-
-            //Console.WriteLine("||Rock | Paper | Scissors | Lizard | Spock||");
-            //if (userInput == "Rock")
-            //{
-            //    return gestures[0];
-            //}
-            //else if (userInput == "Paper")
-            //{
-            //    return gestures[1];
-            //}
-            //else if(userInput == "scissors")
-            //{
-            //    return gestures[2];
-            //}
-            //else if(userInput == "Lizard")
-            //{
-            //    return gestures[3];
-            //}
-            //else if(userInput == "Spock")
-            //{
-            //    return gestures[4];
-            //}    
-            //else
-            //{
-            //    Console.WriteLine("Please choose an appropriate gesture next time.");
-            //    return null;
-            //}
         }
     }
 }

@@ -39,7 +39,7 @@ namespace RPSLS
         public void Battle()
         {
 
-            while(player1.score != player2.score + 2 && player1.score != 3 && player2.score != player1.score + 2 && player2.score != 3)
+            while(player1.score != player2.score + 2 && player1.score != 5 && player2.score != player1.score + 2 && player2.score != 5)
             {
                 player1.ChooseMove();
                 player2.ChooseMove();
@@ -60,16 +60,31 @@ namespace RPSLS
             if (player1.chosenGesture == player2.chosenGesture)
             {
                 Console.WriteLine("TIE no points!");
+                Console.BackgroundColor = ConsoleColor.Green;
+                Console.WriteLine("Please press enter when you are ready for the next round");
+                Console.ReadLine();
+                Console.ResetColor();
+                Console.Clear();
             }
             else if(player1.chosenGesture.enemyTwo != player2.chosenGesture.name && player2.chosenGesture.name != player1.chosenGesture.enemy)
             {
                 Console.WriteLine(player1.name +" just destroyed "+player2.name);
                     player1.score++;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Please press enter when you are ready for the next round or to see results");
+                Console.ReadLine();
+                Console.ResetColor();
+                Console.Clear();
             }
             else
             {
                 Console.WriteLine(player2.name + "could sure teach you a thing or two, "+ player1.name);
                     player2.score++;
+                Console.BackgroundColor = ConsoleColor.Red;
+                Console.WriteLine("Please press enter when you are ready for the next round or to see results");
+                Console.ReadLine();
+                Console.ResetColor();
+                Console.Clear();
             }
             
             

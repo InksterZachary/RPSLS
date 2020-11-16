@@ -16,8 +16,11 @@ namespace RPSLS
 
         public void WelcomeRules()
         {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Welcome to RPSLS!");
-            Console.WriteLine("In this game you will have to choose from the list of gestures to faceoff against your opponent!");
+            Console.WriteLine("In this game you will have to choose from\n" +
+                "the list of gestures to faceoff against your opponent!\n" +
+                "");
             Console.WriteLine("The rules are as follows:");
             Console.WriteLine("Rock beats Lizard and Scissors");
             Console.WriteLine("Paper beats Spock and Rock");
@@ -26,6 +29,7 @@ namespace RPSLS
             Console.WriteLine("Spock beats Rock and Scissors");
             Console.WriteLine("Please press any key to continue.");
             Console.ReadLine();
+            Console.ResetColor();
             Console.Clear(); 
         }
         public bool PlayerChoice()
