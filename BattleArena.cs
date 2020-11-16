@@ -18,7 +18,8 @@ namespace RPSLS
         public void RunGame()
         {
             game.WelcomeRules();
-            if (game.PlayerChoice() == 1)
+            int userChoice = game.PlayerChoice();
+            if (userChoice == 1)
             {
                 Console.WriteLine("What is player one's name?");
                 player1 = new HumanPlayer(Console.ReadLine());
@@ -26,7 +27,7 @@ namespace RPSLS
                 player2 = new HumanPlayer(Console.ReadLine());
                 
             }
-            else if (game.PlayerChoice() == 2)
+            else if (userChoice == 2)
             {
                 Console.WriteLine("What is player one's name?");
                 player1 = new HumanPlayer(Console.ReadLine());
@@ -47,6 +48,7 @@ namespace RPSLS
             while(player1.score != player2.score + 2 && player1.score != 5 && player2.score != player1.score + 2 && player2.score != 5)
             {
                 player1.ChooseMove();
+                System.Threading.Thread.Sleep(500);
                 player2.ChooseMove();
                 CompareMoves();
 
@@ -56,12 +58,30 @@ namespace RPSLS
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("WINNER\n"
                     +player1.name +" is unequivically the most ruthless gesturer this side of the boarder.");
+                if(game.NewGame())
+                {
+                    Console.Clear();
+                    RunGame();
+                }
+                else
+                {
+                    Console.Clear();
+                    Console.WriteLine("GAME OVER");
+                }
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("WINNER\n" +
                     "I bet "+ player2.name +" could take you with one arm tied behind their back.");
+                if (game.NewGame())
+                {
+                    RunGame();
+                }
+                else
+                {
+                    Console.WriteLine("GAME OVER");
+                }
             }
         }
         public void CompareMoves()
@@ -88,7 +108,7 @@ namespace RPSLS
             }
             else
             {
-                Console.WriteLine(player2.name + "could sure teach you a thing or two, "+ player1.name+"-(" +player2.name+ "-"+ (player2.score+1) + ")");
+                Console.WriteLine(player2.name + " could sure teach you a thing or two, "+ player1.name+"-(" +player2.name+ "-"+ (player2.score+1) + ")");
                     player2.score++;
                 Console.BackgroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please press enter when you are ready for the next round or to see results");

@@ -12,26 +12,16 @@ namespace RPSLS
         public int score;
         public Move chosenGesture;
         public List<Move> gestures;
-        //public Move rock;
-        //public Move paper;
-        //public Move scissors;
-       // public Move lizard;
-        //public Move spock;
 
         public Player(string name)
         {
             this.name = name;
             gestures = new List<Move>();
-            Move rock = new Move("rock", "paper", "spock");
-            Move paper = new Move("paper", "scissors", "lizard");
-            Move scissors = new Move("scissors", "spock", "rock");
-            Move lizard = new Move("lizard", "scissors", "rock");
-            Move spock = new Move("spock", "lizard", "paper");
             gestures.Add(new Move("rock", "paper", "spock"));
-            gestures.Add(paper);
-            gestures.Add(scissors);
-            gestures.Add(lizard);
-            gestures.Add(spock);
+            gestures.Add(new Move("paper","scissors","lizard"));
+            gestures.Add(new Move("scissors","spock","rock"));
+            gestures.Add(new Move("lizard", "scissors","rock"));
+            gestures.Add(new Move("spock", "lizard", "paper"));
         }
         public abstract void ChooseMove();
     }

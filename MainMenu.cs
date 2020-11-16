@@ -57,5 +57,27 @@ namespace RPSLS
                 return 3;
             }
         }     
+        public bool NewGame()
+        {
+            Console.WriteLine("\n" +
+                "Would you like to play again?\n" +
+                "Y/N");
+            string userInput = Console.ReadLine();
+            while(userInput != "Y" && userInput != "y" && userInput != "N" && userInput != "n")
+            {
+                Console.WriteLine("\n" +
+                "Would you like to play again?\n" +
+                "Y/N");
+                userInput = Console.ReadLine();
+            }
+            if (userInput == "Y" || userInput == "y")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
