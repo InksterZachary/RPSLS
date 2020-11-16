@@ -11,7 +11,6 @@ namespace RPSLS
 
         public HumanPlayer(string name) : base(name)
         {
-            //name = Console.ReadLine();
             score = 0;
            
         }
@@ -20,7 +19,6 @@ namespace RPSLS
             chosenGesture = HumanMove();
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine(name + " chose " + chosenGesture.name);
-            //return chosenGesture;
         }
         public Move HumanMove()
         {

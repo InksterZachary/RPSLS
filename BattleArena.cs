@@ -80,7 +80,8 @@ namespace RPSLS
                 }
                 else
                 {
-                    Console.WriteLine("GAME OVER");
+                    Console.Clear();
+                    game.CenterText("GAME OVER");
                 }
             }
         }

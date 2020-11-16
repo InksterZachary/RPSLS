@@ -79,5 +79,10 @@ namespace RPSLS
                 return false;
             }
         }
+        public void CenterText(string text)
+        {
+            Console.Write(new string(' ', (Console.WindowWidth - text.Length) / 2));
+            Console.WriteLine(text);
+        }
     }
 }
