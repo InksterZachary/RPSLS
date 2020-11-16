@@ -32,29 +32,30 @@ namespace RPSLS
             Console.ResetColor();
             Console.Clear(); 
         }
-        public bool PlayerChoice()
+        public int PlayerChoice()
         {
             int input;
             do
             {
-                Console.WriteLine("Please type '1' for Player VS Player or '2' for Player vs Computer");
+                Console.WriteLine("Please type a command: \n" +
+                    "'1' for Player VS Player \n" +
+                    "'2' for Player vs Computer \n" +
+                    "'3' to watch the computers go at it");
                 input = int.Parse(Console.ReadLine());
             }
-            while (input != 1 && input != 2);
+            while (input != 1 && input != 2 && input != 3);
             if (input == 1)
             {
-                return true;
+                return 1;
+            }
+            else if(input == 2)
+            {
+                return 2;
             }
             else
             {
-                return false;
+                return 3;
             }
-        }
-            //public bool NewGame()
-            //{
-           
-                //Console.WriteLine("Would you like to play again?");
-           //}
-        
+        }     
     }
 }

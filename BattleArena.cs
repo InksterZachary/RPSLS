@@ -18,7 +18,7 @@ namespace RPSLS
         public void RunGame()
         {
             game.WelcomeRules();
-            if (game.PlayerChoice())
+            if (game.PlayerChoice() == 1)
             {
                 Console.WriteLine("What is player one's name?");
                 player1 = new HumanPlayer(Console.ReadLine());
@@ -26,12 +26,17 @@ namespace RPSLS
                 player2 = new HumanPlayer(Console.ReadLine());
                 
             }
-            else
+            else if (game.PlayerChoice() == 2)
             {
                 Console.WriteLine("What is player one's name?");
                 player1 = new HumanPlayer(Console.ReadLine());
                 player2 = new ComputerPlayer("AlIx");
                 
+            }
+            else
+            {
+                player1 = new ComputerPlayer("Killer");
+                player2 = new ComputerPlayer("Terminator");
             }
             Battle();
             Console.ReadLine();

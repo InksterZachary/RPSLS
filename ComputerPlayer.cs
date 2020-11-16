@@ -12,7 +12,7 @@ namespace RPSLS
         public Random random;
         public ComputerPlayer(string name) : base(name)//base calls the parent constructor and sends in the required values.
         {
-            this.name = "AlIx";
+            this.name = name;
             score = 0;
             
         }
