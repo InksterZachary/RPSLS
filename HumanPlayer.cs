@@ -19,6 +19,7 @@ namespace RPSLS
             chosenGesture = HumanMove();
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine(name + " chose " + chosenGesture.name);
+            Console.ResetColor();
         }
         public Move HumanMove()
         {

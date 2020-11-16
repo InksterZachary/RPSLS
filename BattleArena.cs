@@ -66,7 +66,7 @@ namespace RPSLS
                 else
                 {
                     Console.Clear();
-                    Console.WriteLine("GAME OVER");
+                    game.CenterText("GAME OVER");
                 }
             }
             else
@@ -76,6 +76,7 @@ namespace RPSLS
                     "I bet "+ player2.name +" could take you with one arm tied behind their back.");
                 if (game.NewGame())
                 {
+                    Console.Clear();
                     RunGame();
                 }
                 else
