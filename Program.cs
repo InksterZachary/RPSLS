@@ -12,6 +12,7 @@ namespace RPSLS
         {
             BattleArena battleOne = new BattleArena();
             battleOne.RunGame();
+            Console.ReadLine();  
         }
     }
 }

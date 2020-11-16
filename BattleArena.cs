@@ -20,18 +20,23 @@ namespace RPSLS
             game.WelcomeRules();
             if (game.PlayerChoice())
             {
+                Console.WriteLine("What is player one's name?");
                 player1 = new HumanPlayer(Console.ReadLine());
+                Console.WriteLine("What is player two's name?");
                 player2 = new HumanPlayer(Console.ReadLine());
-                BattlePVP();
+                
             }
             else
             {
+                Console.WriteLine("What is player one's name?");
                 player1 = new HumanPlayer(Console.ReadLine());
                 player2 = new ComputerPlayer("AlIx");
-                BattleComputer();
+                
             }
+            Battle();
+            Console.ReadLine();
         }
-        public void BattlePVP()
+        public void Battle()
         {
 
             while(player1.score != player2.score + 2 && player1.score != 3 && player2.score != player1.score + 2 && player2.score != 3)
@@ -50,41 +55,23 @@ namespace RPSLS
                 Console.WriteLine("I bet "+ player2.name +" could take you with one arm tied behind their back.");
             }
         }
-        
-        public void BattleComputer()
-        {
-            while (player1.score != player2.score + 2 && player1.score != 3 && player2.score != player1.score + 2 && player2.score != 3)
-            {
-                player1.ChooseMove();
-                player2.ChooseMove();
-                CompareMoves();
-            }
-            if (player1.score > player2.score)
-            {
-                Console.WriteLine(player1.name + " is unequivically the most ruthless gesturer this side of town.");
-            }
-            else
-            {
-                Console.WriteLine("I bet " + player2.name + " could take you with one arm tied behind their back.");
-            }
-        }
         public void CompareMoves()
         {
-            if (player1.gesture == player2.gesture)
+            if (player1.chosenGesture == player2.chosenGesture)
             {
                 Console.WriteLine("TIE no points!");
             }
-            for (int i = 0; i < player1.gesture.Count; i++)
+            else if(player1.chosenGesture.enemyTwo != player2.chosenGesture.name && player2.chosenGesture.name != player1.chosenGesture.enemy)
             {
-              if(player1.gesture[i].name != player2.gesture[i].enemy && player1.gesture[i].name != player2.gesture[i].enemyTwo)
-                {
+                Console.WriteLine(player1.name +" just destroyed "+player2.name);
                     player1.score++;
-                }
-                else
-                {
-                    player2.score++;
-                }
             }
+            else
+            {
+                Console.WriteLine(player2.name + "could sure teach you a thing or two, "+ player1.name);
+                    player2.score++;
+            }
+            
             
         }
     }

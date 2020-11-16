@@ -26,7 +26,7 @@ namespace RPSLS
             Console.WriteLine("Spock beats Rock and Scissors");
             Console.WriteLine("Please press any key to continue.");
             Console.ReadLine();
-            Console.Clear();
+            Console.Clear(); 
         }
         public bool PlayerChoice()
         {

@@ -14,12 +14,14 @@ namespace RPSLS
         {
             this.name = "AlIx";
             score = 0;
+            
         }
 
         public override void ChooseMove()
         {
-            Console.WriteLine("Rock, Paper, Scissors, Lizard, Spock SHOOT");
-            RoboMove(); 
+            chosenGesture = RoboMove();
+            Console.WriteLine(name+" chose "+chosenGesture.name);
+            //return chosenGesture;
         }
 
         public Move RoboMove()
@@ -29,20 +31,15 @@ namespace RPSLS
             switch (r)
             {
                 case 0:
-                    Console.WriteLine(gesture[0].name);
-                    return gesture[0];
+                    return gestures[0];
                 case 1:
-                    Console.WriteLine(gesture[1].name);
-                    return gesture[1];
+                    return gestures[1];
                 case 2:
-                    Console.WriteLine(gesture[2].name);
-                    return gesture[2];
+                    return gestures[2];
                 case 3:
-                    Console.WriteLine(gesture[3].name);
-                    return gesture[3];
+                    return gestures[3];
                 case 4:
-                    Console.WriteLine(gesture[4].name);
-                    return gesture[4];
+                    return gestures[4];
             }
             return null;
         }

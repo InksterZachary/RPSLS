@@ -13,48 +13,66 @@ namespace RPSLS
         {
             //name = Console.ReadLine();
             score = 0;
+           
         }
         public override void ChooseMove()
         {
-           HumanMove();
+            chosenGesture = HumanMove();
+            Console.WriteLine(name + " chose " + chosenGesture.name);
+            //return chosenGesture;
         }
         public Move HumanMove()
         {
-
-            bool validInput = false;
-            while (!validInput)
+            Console.WriteLine("Choose a gesture. Your options are:");
+            for (int i = 0; i < gestures.Count; i++)
             {
-
-                Console.WriteLine("Choose a gesture. Your options are:");
-                Console.WriteLine("||Rock | Paper | Scissors | Lizard | Spock||");
-                string userInput = Console.ReadLine();
-                if (userInput == "Rock")
+                Console.WriteLine((i + 1) + ": " + gestures[i].name);
+            }
+            string userInput = Console.ReadLine();
+            if (int.TryParse(userInput, out int number)) //Tony showed me this
+            {
+                number--;
+                if (number >= 0 && number < gestures.Count)
                 {
-                    return gesture[0];
+                    return gestures[number];
                 }
-                else if (userInput == "Paper")
-                {
-                    return gesture[1];
-                }
-                else if(userInput == "scissors")
-                {
-                    return gesture[2];
-                }
-                else if(userInput == "Lizard")
-                {
-                    return gesture[3];
-                }
-                else if(userInput == "Spock")
-                {
-                    return gesture[4];
-                }    
                 else
                 {
-                    Console.WriteLine("Please choose an appropriate gesture next time.");
-                    return null;
+                    return HumanMove();
                 }
             }
-            return null;
+            else
+            {
+                return HumanMove();
+            }
+
+
+            //Console.WriteLine("||Rock | Paper | Scissors | Lizard | Spock||");
+            //if (userInput == "Rock")
+            //{
+            //    return gestures[0];
+            //}
+            //else if (userInput == "Paper")
+            //{
+            //    return gestures[1];
+            //}
+            //else if(userInput == "scissors")
+            //{
+            //    return gestures[2];
+            //}
+            //else if(userInput == "Lizard")
+            //{
+            //    return gestures[3];
+            //}
+            //else if(userInput == "Spock")
+            //{
+            //    return gestures[4];
+            //}    
+            //else
+            //{
+            //    Console.WriteLine("Please choose an appropriate gesture next time.");
+            //    return null;
+            //}
         }
     }
 }
