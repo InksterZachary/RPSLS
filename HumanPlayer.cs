@@ -18,6 +18,7 @@ namespace RPSLS
         public override void ChooseMove()
         {
             chosenGesture = HumanMove();
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine(name + " chose " + chosenGesture.name);
             //return chosenGesture;
         }

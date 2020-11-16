@@ -48,19 +48,24 @@ namespace RPSLS
             }
             if(player1.score > player2.score)
             {
-                Console.WriteLine(player1.name +" is unequivically the most ruthless gesturer this side of the boarder.");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("WINNER\n"
+                    +player1.name +" is unequivically the most ruthless gesturer this side of the boarder.");
             }
             else
             {
-                Console.WriteLine("I bet "+ player2.name +" could take you with one arm tied behind their back.");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("WINNER\n" +
+                    "I bet "+ player2.name +" could take you with one arm tied behind their back.");
             }
         }
         public void CompareMoves()
         {
-            if (player1.chosenGesture == player2.chosenGesture)
+            if (player1.chosenGesture.name == player2.chosenGesture.name)
             {
                 Console.WriteLine("TIE no points!");
-                Console.BackgroundColor = ConsoleColor.Green;
+                Console.BackgroundColor = ConsoleColor.Blue;
+                Console.ForegroundColor = ConsoleColor.White;
                 Console.WriteLine("Please press enter when you are ready for the next round");
                 Console.ReadLine();
                 Console.ResetColor();
@@ -68,7 +73,7 @@ namespace RPSLS
             }
             else if(player1.chosenGesture.enemyTwo != player2.chosenGesture.name && player2.chosenGesture.name != player1.chosenGesture.enemy)
             {
-                Console.WriteLine(player1.name +" just destroyed "+player2.name);
+                Console.WriteLine(player1.name +" just destroyed "+player2.name+"-("+player1.name+"-"+(player1.score+1)+")");
                     player1.score++;
                 Console.BackgroundColor = ConsoleColor.Blue;
                 Console.WriteLine("Please press enter when you are ready for the next round or to see results");
@@ -78,7 +83,7 @@ namespace RPSLS
             }
             else
             {
-                Console.WriteLine(player2.name + "could sure teach you a thing or two, "+ player1.name);
+                Console.WriteLine(player2.name + "could sure teach you a thing or two, "+ player1.name+"-(" +player2.name+ "-"+ (player2.score+1) + ")");
                     player2.score++;
                 Console.BackgroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please press enter when you are ready for the next round or to see results");

@@ -20,7 +20,9 @@ namespace RPSLS
         public override void ChooseMove()
         {
             chosenGesture = RoboMove();
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(name+" chose "+chosenGesture.name);
+            Console.ResetColor();
             //return chosenGesture;
         }
 
